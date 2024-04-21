@@ -1,6 +1,6 @@
 class Queue:
     #   Function to initialise a queue object
-    def __init__(self, max_len):
+    def __init__(self, max_len=0):
         #   Define the queue as an array
         self.queue = [max_len]
         #   Initialise the front and end of the queue as 0
@@ -36,23 +36,47 @@ class Queue:
 
     #   Function to output all values in the queue in order
     def display(self):
+        response = ""
+
         #   Verify that there is data in the queue
         if self.head is not None:
             #   For loop for the length of the array to output the values
             for i in range(0, self.tail, 1):
-                print("Position " + str(i) + " holds " + str(self.queue[i]))
+                response += ("Position " + str(i) + " holds " + str(self.queue[i]) + "\n")
         else:
             #   The queue is empty so no data can be output
             print("Sorry, the queue is currently empty!")
+            return "Sorry, the queue is currently empty!"
+
+        print(response)
+        return response
 
     #   Function to peek at the head of the queue
     def peek(self):
         #   Verify that there is data in the queue
         if self.head != self.tail:
             print(str(self.queue[0]) + " is at the front of the queue.")
+            return str(self.queue[0]) + " is at the front of the queue."
         else:
             #   The queue is empty so no data can be output
             print("Sorry, the queue is currently empty!")
+            return "Sorry, the queue is currently empty!"
+
+    #   Get the position of the head of the queue
+    def get_head(self):
+        return self.head
+
+    #   Get the position of the tail of the queue
+    def get_tail(self):
+        return self.tail
+
+    #   Get the maximum length of the queue
+    def get_max_len(self):
+        return self.max_len
+
+    #   Get the maximum length of the queue
+    def get_value(self, position):
+        return self.queue[position]
 
 
 #   Driver code

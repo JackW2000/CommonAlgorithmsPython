@@ -6,8 +6,9 @@ class DoubleLinkedList:
             self.tail = None
             self.total_nodes = 0
         else:
-            self.head = Node(val)
-            self.tail = Node(val)
+            node = Node(val)
+            self.head = node
+            self.tail = node
             self.total_nodes = 1
 
     #   Function will provide a string representation of the data structure
@@ -136,7 +137,7 @@ class DoubleLinkedList:
         #   Iterate through the linked list until the value is found
         for i in range(self.total_nodes):
             #   If the value is found, return the index
-            if start.data == data:
+            if start.get_data() == data:
                 return i
             #   Else, move to the next_node node
             start = start.next_node
@@ -166,4 +167,4 @@ class Node:
 
     #   Function to get the data of the node
     def get_data(self):
-        return self.data
+        return self.data.data

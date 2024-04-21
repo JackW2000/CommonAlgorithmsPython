@@ -4,6 +4,10 @@ class Node:
         self.data = data
         self.next_node = self.previous_node = None
 
+    #   Function to get the data stored in a node
+    def get_data(self):
+        return self.data
+
 
 class Queue:
     #   Function to initialise a queue object
@@ -45,6 +49,8 @@ class Queue:
 
     #   Function to output all values in the queue in order
     def display(self):
+        response = ""
+
         #   Initialise counter
         position = 0
         #   Store head node as temp
@@ -52,11 +58,14 @@ class Queue:
         #   Loop until there are no nodes left
         while temp is not None:
             #   Output the position (counter) and the data of the node
-            print("Position " + str(position) + " holds " + str(temp.data))
+            response += "Position " + str(position) + " holds " + str(temp.data) + "\n"
             #   Update temp to point to the next node
             temp = temp.next_node
             #   Increment counter
             position += 1
+
+        print(response)
+        return response
 
     #   Function to peek at the head of the queue
     def peek(self):
@@ -64,12 +73,14 @@ class Queue:
         if self.head != self.tail:
             #
             print(str(self.head.data) + " is at the front of the queue.")
+            return str(self.head.data) + " is at the front of the queue."
         else:
             #   The queue is empty so no data can be output
             print("Sorry, the queue is currently empty!")
+            return "Sorry, the queue is currently empty!"
 
     #   Function to return the queue length
-    def length(self):
+    def get_length(self):
         #   Store head node as temp
         temp = self.head
         #   Initialise counter
@@ -83,36 +94,12 @@ class Queue:
 
         #   Output the queue length
         print("The queue is " + str(node_count) + " nodes long.")
+        return node_count
 
+    #   Get the position of the head of the queue
+    def get_head(self):
+        return self.head
 
-#   Driver code
-if __name__ == "__main__":
-    my_queue = Queue()
-
-    my_queue.display()
-
-    my_queue.enqueue(11)
-    my_queue.enqueue(1)
-    my_queue.enqueue(81)
-    my_queue.enqueue(9)
-
-    my_queue.peek()
-
-    my_queue.display()
-
-    my_queue.length()
-
-    my_queue.enqueue(8)
-    my_queue.enqueue(998)
-
-    my_queue.display()
-
-    my_queue.length()
-
-    my_queue.dequeue()
-    my_queue.dequeue()
-    my_queue.dequeue()
-
-    my_queue.display()
-
-    my_queue.length()
+    #   Get the position of the tail of the queue
+    def get_tail(self):
+        return self.tail

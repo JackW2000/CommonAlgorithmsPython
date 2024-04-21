@@ -4,20 +4,14 @@ from src.jackw.main.searching import LinearSearch
 
 class LinearSearchTest(unittest.TestCase):
     def test_search_value_found(self):
-        my_array = [1, 564, 1123, 9999, 5641, 1234, 5, 14, 89, 445]
-
-        print(my_array)
-
-        index = LinearSearch.linear_search(my_array, 9999)
+        test_array = [1, 564, 1123, 9999, 5641, 1234, 5, 14, 89, 445]
+        index = LinearSearch.linear_search(test_array, 9999)
 
         self.assertEqual(index, 3)
 
     def test_search_value_not_found(self):
-        my_array = [1, 564, 1123, 9999, 5641, 1234, 5, 14, 89, 445]
-
-        print(my_array)
-
-        index = LinearSearch.linear_search(my_array, 1010)
+        test_array = [1, 564, 1123, 9999, 5641, 1234, 5, 14, 89, 445]
+        index = LinearSearch.linear_search(test_array, 1010)
 
         self.assertEqual(index, -1)
 

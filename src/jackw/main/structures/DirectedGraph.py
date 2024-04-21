@@ -35,6 +35,15 @@ class Vertex:
 
 
 #   Graph class will contain data for all vertices/ nodes within the graph
+def print_graph(graph):
+    response = ""
+    for vertex in graph:
+        for weighting in vertex.get_neighbours():
+            response += "%s -> %s Cost: %d" % (vertex.get_id(), weighting.get_id(), vertex.get_weight(weighting)) + "\n"
+    print(response)
+    return response
+
+
 class Graph:
     #   Function will initialise a graph object
     def __init__(self):
@@ -70,6 +79,10 @@ class Graph:
     def get_vertices(self):
         #   Return the key values for the vertices dict
         return self.vertices.keys()
+
+    #   Function will return a count of vertices in the graph
+    def get_vertices_count(self):
+        return len(self.vertices)
 
     #   Function will add an arc/ edge between two vertices (passed as start_vertex and end_vertex)
     #   Direction (start to end by default) will allow the user to define whether an arc moves from start to end,
